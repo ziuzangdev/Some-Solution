@@ -6,7 +6,6 @@ The scheduleNotifications() method is used to set up the notifications with the 
 The NotificationScheduler class also includes a getmContext() method which returns the Context passed to the class during initialization.
 
 ========================== NotificationPublisher.java ==================================
-
 The NotificationPublisher class is used to publish notifications that have been scheduled by the NotificationScheduler class. It extends the BroadcastReceiver class and overrides the onReceive() method.
 
 When a notification is scheduled, an Intent is created and broadcasted to the system. The NotificationPublisher class listens for these broadcasts and when it receives one, it retrieves the notification and its ID from the Intent using the NOTIFICATION and NOTIFICATION_ID constants. It then uses the notification ID to display the notification using the NotificationManager.
