@@ -1,0 +1,15 @@
+    public Bitmap reduceImageSize(Bitmap image) {
+        // Remove unnecessary metadata
+        image.setDensity(Bitmap.DENSITY_NONE);
+
+        // Use a lossless image compression algorithm
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        image.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+        byte[] imageData = stream.toByteArray();
+
+        // Optimize the image
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
+        Bitmap reducedImage = BitmapFactory.decodeByteArray(imageData, 0, imageData.length, options);
+        return reducedImage;
+    }
