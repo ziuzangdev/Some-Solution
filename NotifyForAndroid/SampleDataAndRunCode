@@ -1,0 +1,7 @@
+ Map<String, String> schedule = new Hashtable<>();
+        schedule.put("Good morning, have a nice day. Let's start the day with a brand new diary page", "06:00");
+        schedule.put("How are you? Write your wonderful morning experience, don't forget it, work hard in journaling every day to express your feelings better UwU", "12:00");
+        schedule.put("How is your day? No matter what, remember \"Everything will be okay\" UwU", "20:00");
+        schedule.put("Good night UwU, see you tomorrow UwU", "00:00");
+        NotificationScheduler notificationScheduler = new NotificationScheduler(MainActivity.this, schedule);
+        notificationScheduler.scheduleNotifications();
