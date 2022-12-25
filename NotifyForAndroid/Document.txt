@@ -1,6 +1,12 @@
-========================== NotificationScheduler ==================================
+========================== NotificationScheduler.java ==================================
 The NotificationScheduler class is used to schedule notifications to be displayed at a specific time. It requires a Context and a Map of String to String as input. The Map represents the schedule data, with the key representing the content of the notification and the value representing the time at which the notification should be displayed.
 
 The scheduleNotifications() method is used to set up the notifications with the scheduled time. It first initializes an instance of PreferencesManagerNotify and checks if the setup has been completed. If the setup has not been completed, it will iterate through the schedule data Map and set up a notification for each entry. The scheduled time is extracted from the value of each entry and a Calendar object is initialized with that time. If the scheduled time has already passed for the current day, the calendar object will be set to the next day. A notification Builder is then initialized with the content and time of the notification. An action Intent is set up to open the MainActivity when the notification is clicked and the notification is set to be cancelled when clicked. If the device is running Android 8.0 or higher, a notification channel is also set up. Finally, the notification is scheduled to be displayed at the specified time using an AlarmManager.
 
 The NotificationScheduler class also includes a getmContext() method which returns the Context passed to the class during initialization.
+
+========================== NotificationPublisher.java ==================================
+
+The NotificationPublisher class is used to publish notifications that have been scheduled by the NotificationScheduler class. It extends the BroadcastReceiver class and overrides the onReceive() method.
+
+When a notification is scheduled, an Intent is created and broadcasted to the system. The NotificationPublisher class listens for these broadcasts and when it receives one, it retrieves the notification and its ID from the Intent using the NOTIFICATION and NOTIFICATION_ID constants. It then uses the notification ID to display the notification using the NotificationManager.
