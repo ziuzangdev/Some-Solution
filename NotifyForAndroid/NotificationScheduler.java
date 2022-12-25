@@ -97,5 +97,5 @@ public class NotificationScheduler {
             }
             prefManager.saveSetup(true);
         }
-        }
+      }
     }
